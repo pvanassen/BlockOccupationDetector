@@ -1,22 +1,26 @@
 #include <Arduino.h>
-#include "Debounce4051.h"
+#include "Blokdetectie.h"
 
-Debounce4051* block1;
+Blokdetectie* block1;
 
-void blockOccupied(byte block) {
-    Serial.println("Train entered block ");
-    Serial.println(block);
+void blockOccupied(byte id, byte block) {
+    Serial.print("Train entered block ");
+    Serial.print(block);
+    Serial.print(" on detector ");
+    Serial.println(id);
 }
 
-void blockReleased(byte block) {
+void blockReleased(byte id, byte block) {
     Serial.print("Train exitted block ");
-    Serial.println(block);
+    Serial.print(block);
+    Serial.print(" on detector ");
+    Serial.println(id);
 }
 
 void setup() {
     Serial.begin(9600);
     Serial.println("Initializing block 1");
-    block1 = new Debounce4051(2, 3, 4, 6, 8, &blockOccupied, blockReleased);
+    block1 = new Blokdetectie(0, 2, 3, 4, 6, 8, &blockOccupied, blockReleased);
     Serial.println("Done setup");
 }
 
