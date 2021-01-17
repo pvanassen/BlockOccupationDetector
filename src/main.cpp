@@ -20,11 +20,11 @@ void blockReleased(byte id, byte block) {
 void setup() {
     Serial.begin(9600);
     Serial.println("Initializing block 1");
-    block1 = new Blokdetectie(0, 2, 3, 4, 6, 8, &blockOccupied, blockReleased);
+    block1 = new Blokdetectie(0, 2, 3, 4, A0, 6, &blockOccupied, blockReleased);
     Serial.println("Done setup");
 }
 
 void loop() {
     block1->tick();
-    delay(10);
+    delay(750);
 }

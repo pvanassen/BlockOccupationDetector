@@ -76,18 +76,18 @@ include CMakeFiles/Z_DUMMY_TARGET.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 
-CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
-CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.obj: ../src/Debounce4051.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git\blokdetectie\cmake-build-uno\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.obj"
-	C:\Users\paul\.platformio\packages\toolchain-atmelavr\bin\avr-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\src\Debounce4051.cpp.obj -c D:\git\blokdetectie\src\Debounce4051.cpp
+CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.obj: ../src/Blokdetectie.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\git\blokdetectie\cmake-build-uno\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.obj"
+	C:\Users\paul\.platformio\packages\toolchain-atmelavr\bin\avr-g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Z_DUMMY_TARGET.dir\src\Blokdetectie.cpp.obj -c D:\git\blokdetectie\src\Blokdetectie.cpp
 
-CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.i"
-	C:\Users\paul\.platformio\packages\toolchain-atmelavr\bin\avr-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\git\blokdetectie\src\Debounce4051.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\src\Debounce4051.cpp.i
+CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.i"
+	C:\Users\paul\.platformio\packages\toolchain-atmelavr\bin\avr-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\git\blokdetectie\src\Blokdetectie.cpp > CMakeFiles\Z_DUMMY_TARGET.dir\src\Blokdetectie.cpp.i
 
-CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.s"
-	C:\Users\paul\.platformio\packages\toolchain-atmelavr\bin\avr-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\git\blokdetectie\src\Debounce4051.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\src\Debounce4051.cpp.s
+CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.s"
+	C:\Users\paul\.platformio\packages\toolchain-atmelavr\bin\avr-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\git\blokdetectie\src\Blokdetectie.cpp -o CMakeFiles\Z_DUMMY_TARGET.dir\src\Blokdetectie.cpp.s
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj: ../src/main.cpp
@@ -104,13 +104,13 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.s: cmake_force
 
 # Object files for target Z_DUMMY_TARGET
 Z_DUMMY_TARGET_OBJECTS = \
-"CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj"
 
 # External object files for target Z_DUMMY_TARGET
 Z_DUMMY_TARGET_EXTERNAL_OBJECTS =
 
-Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/build.make
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/link.txt

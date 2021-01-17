@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/git/blokdetectie/src/Debounce4051.cpp" "D:/git/blokdetectie/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.obj"
+  "D:/git/blokdetectie/src/Blokdetectie.cpp" "D:/git/blokdetectie/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.obj"
   "D:/git/blokdetectie/src/main.cpp" "D:/git/blokdetectie/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

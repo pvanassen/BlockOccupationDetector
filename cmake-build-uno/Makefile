@@ -168,32 +168,32 @@ Z_DUMMY_TARGET/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/build
 .PHONY : Z_DUMMY_TARGET/fast
 
-src/Debounce4051.obj: src/Debounce4051.cpp.obj
+src/Blokdetectie.obj: src/Blokdetectie.cpp.obj
 
-.PHONY : src/Debounce4051.obj
+.PHONY : src/Blokdetectie.obj
 
 # target to build an object file
-src/Debounce4051.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.obj
-.PHONY : src/Debounce4051.cpp.obj
+src/Blokdetectie.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.obj
+.PHONY : src/Blokdetectie.cpp.obj
 
-src/Debounce4051.i: src/Debounce4051.cpp.i
+src/Blokdetectie.i: src/Blokdetectie.cpp.i
 
-.PHONY : src/Debounce4051.i
+.PHONY : src/Blokdetectie.i
 
 # target to preprocess a source file
-src/Debounce4051.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.i
-.PHONY : src/Debounce4051.cpp.i
+src/Blokdetectie.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.i
+.PHONY : src/Blokdetectie.cpp.i
 
-src/Debounce4051.s: src/Debounce4051.cpp.s
+src/Blokdetectie.s: src/Blokdetectie.cpp.s
 
-.PHONY : src/Debounce4051.s
+.PHONY : src/Blokdetectie.s
 
 # target to generate assembly for a file
-src/Debounce4051.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/Debounce4051.cpp.s
-.PHONY : src/Debounce4051.cpp.s
+src/Blokdetectie.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Z_DUMMY_TARGET.dir\build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/Blokdetectie.cpp.s
+.PHONY : src/Blokdetectie.cpp.s
 
 src/main.obj: src/main.cpp.obj
 
@@ -233,9 +233,9 @@ help:
 	@echo ... Debug
 	@echo ... Production
 	@echo ... Z_DUMMY_TARGET
-	@echo ... src/Debounce4051.obj
-	@echo ... src/Debounce4051.i
-	@echo ... src/Debounce4051.s
+	@echo ... src/Blokdetectie.obj
+	@echo ... src/Blokdetectie.i
+	@echo ... src/Blokdetectie.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
