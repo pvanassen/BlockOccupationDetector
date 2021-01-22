@@ -1,0 +1,30 @@
+#include <Arduino.h>
+#include "BlockOccupationDetector.h"
+
+
+void blockOccupied(byte block) {
+    Serial.print("Train entered block ");
+    Serial.println(block);
+}
+
+void blockReleased(byte block) {
+    Serial.print("Train exitted block ");
+    Serial.println(block);
+}
+
+BlockOccupationDetector *blockDetection = new BlockOccupationDetector(2, 3, 4, A0, blockReleased, blockOccupied);
+
+void setup() {
+    Serial.begin(9600);
+    Serial.println("Initializing block 1");
+    blockDetection->addDetector(5);
+    blockDetection->addDetector(6);
+    Serial.println("Done setup");
+}
+
+void loop() {
+    Serial.println("Tick");
+    blockDetection->tick();
+    delay(4000);
+    Serial.println("Ticked");
+}
