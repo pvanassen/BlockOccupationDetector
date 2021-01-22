@@ -29,6 +29,8 @@ public:
     void tick();
 
     byte firstAvailableSensor();
+
+    bool* getLastKnownStates();
 };
 
 #endif //BLOCKOCCUPATIONDETECTOR_H

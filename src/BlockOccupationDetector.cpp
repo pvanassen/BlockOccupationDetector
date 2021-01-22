@@ -80,3 +80,7 @@ void BlockOccupationDetector::tick() {
 byte BlockOccupationDetector::firstAvailableSensor() {
     return (detectors * 8);
 }
+
+bool* BlockOccupationDetector::getLastKnownStates() {
+    return (bool*) lastState;
+}
