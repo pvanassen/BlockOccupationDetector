@@ -3,6 +3,11 @@
 
 #include <Arduino.h>
 
+struct Block {
+    byte absoluteBlock;
+    bool occupied;
+};
+
 class BlockOccupationDetector {
 private:
     byte pinRead = -1;
@@ -14,13 +19,15 @@ private:
     unsigned long ** lastStateChange;
     bool **blockStates;
     byte debounceDelay = 50;
-    void (*blockOccupied)(byte block);
-    void (*blockReleased)(byte block);
+    void (*blockOccupied)(byte block) = NULL;
+    void (*blockReleased)(byte block) = NULL;
     unsigned long now;
-
+    byte block = 0;
+    byte detector = 0;
 public:
-
+    Block lastBlock;
     // Constructors
+    BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead);
     BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead, void (*blockOccupied)(byte block), void (*blockReleased)(byte block));
 
     void addDetector(byte pinEnable);

@@ -1,18 +1,22 @@
 
 #include "BlockOccupationDetector.h"
 
-BlockOccupationDetector::BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead, void (*blockOccupied)(byte),
-                               void (*blockReleased)(byte)) {
+BlockOccupationDetector::BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead) {
     selectPinArray[0] = pinA;
     selectPinArray[1] = pinB;
     selectPinArray[2] = pinC;
     this->pinRead = pinRead;
-    this->blockOccupied = blockOccupied;
-    this->blockReleased = blockReleased;
     pinMode(pinA, OUTPUT);
     pinMode(pinB, OUTPUT);
     pinMode(pinC, OUTPUT);
     pinMode(pinRead, INPUT);
+}
+
+BlockOccupationDetector::BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead, void (*blockOccupied)(byte),
+                               void (*blockReleased)(byte)) {
+    BlockOccupationDetector(pinA, pinB, pinC, pinRead);
+    this->blockOccupied = blockOccupied;
+    this->blockReleased = blockReleased;
 }
 
 void BlockOccupationDetector::addDetector(byte detectorEnablePin) {
@@ -43,38 +47,43 @@ void BlockOccupationDetector::addDetector(byte detectorEnablePin) {
 
 void BlockOccupationDetector::tick() {
     now = millis();
-    for (byte block=0; block<=7; block++) {
-        for (int pin=0; pin<3; pin++) {
-            digitalWrite(selectPinArray[pin], block & (1<<pin) ? HIGH : LOW);
-        }
-        for (byte detector=0;detector!=detectors;detector++) {
-            digitalWrite(pinEnable[detector], LOW);
-            delay(1);
+    if (block == 8) {
+        block = 0;
+    }
+    for (int pin=0; pin<3; pin++) {
+        digitalWrite(selectPinArray[pin], block & (1<<pin) ? HIGH : LOW);
+    }
+    if (detector == detectors) {
+        detector = 0;
+    }
+    digitalWrite(pinEnable[detector], LOW);
 
-            int value = 0;
-            for (int sample=0;sample!=samples;sample++) {
-                value += analogRead(this->pinRead);
-            }
-            bool occupied = (value / samples) < 150;
-            if (lastState[detector][block] != occupied) {
-                lastStateChange[detector][block] = now;
-                lastState[detector][block] = occupied;
-            }
-            else if ((now - lastStateChange[detector][block]) > debounceDelay) {
-                if (blockStates[detector][block] != occupied) {
-                    blockStates[detector][block] = occupied;
-                    int absoluteBlock = (detector * 8) + block;
-                    if (occupied) {
-                        blockOccupied(absoluteBlock);
-                    }
-                    else {
-                        blockReleased(absoluteBlock);
-                    }
+    int value = 0;
+    for (int sample=0;sample!=samples;sample++) {
+        value += analogRead(this->pinRead);
+    }
+    bool occupied = (value / samples) < 150;
+    if (lastState[detector][block] != occupied) {
+        lastStateChange[detector][block] = now;
+        lastState[detector][block] = occupied;
+    }
+    else if ((now - lastStateChange[detector][block]) > debounceDelay) {
+        if (blockStates[detector][block] != occupied) {
+            blockStates[detector][block] = occupied;
+            if (blockOccupied != NULL && blockReleased != NULL) {
+                int absoluteBlock = (detector * 8) + block;
+                if (occupied) {
+                    blockOccupied(absoluteBlock);
+                } else {
+                    blockReleased(absoluteBlock);
                 }
             }
-            digitalWrite(pinEnable[detector], HIGH);
         }
     }
+    digitalWrite(pinEnable[detector], HIGH);
+
+    lastBlock.absoluteBlock = (detector * 8) + block;
+    lastBlock.occupied = blockStates[detector][block];
 }
 
 byte BlockOccupationDetector::firstAvailableSensor() {
@@ -82,5 +91,5 @@ byte BlockOccupationDetector::firstAvailableSensor() {
 }
 
 bool* BlockOccupationDetector::getLastKnownStates() {
-    return (bool*) lastState;
+    return (bool*)lastState;
 }
