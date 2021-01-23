@@ -58,6 +58,8 @@ void BlockOccupationDetector::tick() {
     }
     digitalWrite(pinEnable[detector], LOW);
 
+    lastBlock.changed = false;
+
     int value = 0;
     for (int sample=0;sample!=samples;sample++) {
         value += analogRead(this->pinRead);
@@ -70,8 +72,13 @@ void BlockOccupationDetector::tick() {
     else if ((now - lastStateChange[detector][block]) > debounceDelay) {
         if (blockStates[detector][block] != occupied) {
             blockStates[detector][block] = occupied;
+
+            int absoluteBlock = (detector * 8) + block;
+            lastBlock.changed = true;
+            lastBlock.absoluteBlock = absoluteBlock;
+            lastBlock.occupied = occupied;
+
             if (blockOccupied != NULL && blockReleased != NULL) {
-                int absoluteBlock = (detector * 8) + block;
                 if (occupied) {
                     blockOccupied(absoluteBlock);
                 } else {
@@ -82,8 +89,6 @@ void BlockOccupationDetector::tick() {
     }
     digitalWrite(pinEnable[detector], HIGH);
 
-    lastBlock.absoluteBlock = (detector * 8) + block;
-    lastBlock.occupied = blockStates[detector][block];
 }
 
 byte BlockOccupationDetector::firstAvailableSensor() {

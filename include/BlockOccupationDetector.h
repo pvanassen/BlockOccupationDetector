@@ -6,6 +6,7 @@
 struct Block {
     byte absoluteBlock;
     bool occupied;
+    bool changed;
 };
 
 class BlockOccupationDetector {
