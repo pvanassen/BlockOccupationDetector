@@ -24,7 +24,6 @@ BlockOccupationDetector::BlockOccupationDetector(byte pinA, byte pinB, byte pinC
     this->blockReleased = blockReleased;
 }
 
-#ifdef BLOCKOCCUPATIONDETECTOR_DEBUG
 BlockOccupationDetector::BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead, Stream *debugStream):
         BlockOccupationDetector(pinA, pinB, pinC, pinRead){
     this->debugStream = debugStream;
@@ -36,7 +35,6 @@ BlockOccupationDetector::BlockOccupationDetector(byte pinA, byte pinB, byte pinC
     this->blockOccupied = blockOccupied;
     this->blockReleased = blockReleased;
 }
-#endif
 
 void BlockOccupationDetector::addDetector(byte detectorEnablePin) {
     if (detectors > 0) {

@@ -33,11 +33,9 @@ public:
     BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead,
                             void (*blockOccupied)(byte block), void (*blockReleased)(byte block));
 
-#ifdef BLOCKOCCUPATIONDETECTOR_DEBUG
     BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead, Stream *debugStream);
     BlockOccupationDetector(byte pinA, byte pinB, byte pinC, byte pinRead, Stream *debugStream,
                             void (*blockOccupied)(byte block), void (*blockReleased)(byte block));
-#endif
 
     void addDetector(byte pinEnable);
 
